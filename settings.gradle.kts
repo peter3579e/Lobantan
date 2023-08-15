@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 rootProject.name = "Lobantain"
 include(":app")
 include(":home")
+include(":message")
+include(":profile")
