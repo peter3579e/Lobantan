@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Lobantain"
 include(":app")
+include(":home")
