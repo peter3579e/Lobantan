@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.android.home.view.HeaderItem
+import com.android.home.view.model.HeaderUiModel
 import com.android.lobantain.ui.theme.LobantainTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +21,7 @@ class MainActivity : ComponentActivity() {
             LobantainTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
+                    HeaderItem(headerUiModel = HeaderUiModel("Peter is here"))
                 }
             }
         }
