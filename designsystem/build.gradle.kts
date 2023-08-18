@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.android.home"
+    namespace = "com.android.designsystem"
     compileSdk = 34
 
     defaultConfig {
@@ -41,9 +41,8 @@ android {
 }
 
 dependencies {
+    api(libs.androidx.compose.material.iconsExtended)
 
-    implementation(libs.androidx.hilt.navigation.compose)
-    implementation(project(":designsystem"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
