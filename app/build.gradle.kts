@@ -52,6 +52,20 @@ android {
 
 dependencies {
 
+    implementation(project(":home"))
+    implementation(project(":message"))
+    implementation(project(":profile"))
+    implementation(project(":designsystem"))
+    api(libs.androidx.compose.material3)
+
+
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.compose.material3.windowSizeClass)
+
+    implementation(libs.androidx.compose.runtime.tracing)
+
+
+
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
