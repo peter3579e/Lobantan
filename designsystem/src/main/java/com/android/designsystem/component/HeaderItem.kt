@@ -1,4 +1,4 @@
-package com.android.home.view
+package com.android.designsystem.component
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
@@ -11,8 +11,8 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
+import com.android.designsystem.model.HeaderUiModel
 import com.android.designsystem.theme.LbtTheme
-import com.android.home.model.HeaderUiModel
 
 @Composable
 fun HeaderItem(

@@ -1,4 +1,4 @@
-package com.android.designsystem.component
+package com.android.designsystem.navigation
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material3.MaterialTheme

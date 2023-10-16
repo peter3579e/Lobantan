@@ -13,6 +13,7 @@ material = "1.9.0"
 androidxHiltNavigationCompose = "1.0.0"
 navigationRuntimeKtx = "2.7.0"
 androidxComposeRuntimeTracing = "1.0.0-alpha03"
+androidx-navigationRuntimeKtx = "2.7.4"
 
 
 [libraries]
@@ -41,6 +42,7 @@ material3 = { group = "androidx.compose.material3", name = "material3" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
+navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "androidx-navigationRuntimeKtx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

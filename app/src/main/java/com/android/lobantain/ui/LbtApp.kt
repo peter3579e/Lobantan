@@ -34,8 +34,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
-import com.android.designsystem.component.LbtNavigationBar
-import com.android.designsystem.component.LbtNavigationBarItem
+import com.android.designsystem.navigation.LbtNavigationBar
+import com.android.designsystem.navigation.LbtNavigationBarItem
 import com.android.designsystem.theme.LbtTheme
 import com.android.lobantain.navigation.LbtNavHost
 import com.android.lobantain.navigation.TopLevelDestination

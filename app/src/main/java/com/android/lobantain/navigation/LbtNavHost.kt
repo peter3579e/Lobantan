@@ -7,6 +7,8 @@ import com.android.home.navigation.homeNavigationRoute
 import com.android.home.navigation.homeScreen
 import com.android.home.view.HomeUI
 import com.android.lobantain.ui.LbtAppState
+import com.android.message.navigation.messageScreen
+import com.android.profile.navigation.profileScreen
 
 
 /**
@@ -30,23 +32,12 @@ fun LbtNavHost(
         modifier = modifier,
     ) {
         homeScreen()
-//        bookmarksScreen(
-//            onTopicClick = navController::navigateToTopic,
-//            onShowSnackbar = onShowSnackbar,
-//        )
+        messageScreen()
 //        searchScreen(
 //            onBackClick = navController::popBackStack,
 //            onInterestsClick = { appState.navigateToTopLevelDestination(INTERESTS) },
 //            onTopicClick = navController::navigateToTopic,
 //        )
-//        interestsGraph(
-//            onTopicClick = navController::navigateToTopic,
-//            nestedGraphs = {
-//                topicScreen(
-//                    onBackClick = navController::popBackStack,
-//                    onTopicClick = navController::navigateToTopic,
-//                )
-//            },
-//        )
+        profileScreen()
     }
 }

@@ -5,25 +5,17 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.android.profile.view.ProfileUI
 
-private const val interestsGraphRoutePattern = "interests_graph"
-const val profileRoute = "interests_route"
+const val profileRoute = "profile_route"
 
 fun NavController.navigateToProfile(navOptions: NavOptions? = null) {
-    this.navigate(interestsGraphRoutePattern, navOptions)
+    this.navigate(profileRoute, navOptions)
 }
 
-fun NavGraphBuilder.interestsGraph(
-    onTopicClick: (String) -> Unit,
-    nestedGraphs: NavGraphBuilder.() -> Unit,
+fun NavGraphBuilder.profileScreen(
 ) {
-    navigation(
-        route = interestsGraphRoutePattern,
-        startDestination = profileRoute,
-    ) {
-        composable(route = profileRoute) {
-//            InterestsRoute(onTopicClick)
-        }
-        nestedGraphs()
+    composable(route = profileRoute) {
+        ProfileUI()
     }
 }
