@@ -7,6 +7,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.android.designsystem.component.HeaderItem
 import com.android.designsystem.theme.LbtTheme
 import com.android.designsystem.model.HeaderUiModel
+import com.android.designsystem.theme.ui.DevicePreviews
 
 @Composable
 fun HomeUI() {
@@ -17,7 +18,7 @@ fun HomeUI() {
 
 
 @Composable
-@Preview(showBackground = true, locale = "en", uiMode = Configuration.UI_MODE_NIGHT_NO)
+@DevicePreviews
 fun previewHome() {
     LbtTheme {
         HomeUI()
