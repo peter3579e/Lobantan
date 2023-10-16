@@ -1,4 +1,4 @@
-package com.android.home.view
+package com.android.designsystem.theme
 
 import android.os.Build
 import androidx.annotation.ChecksSdkIntAtLeast

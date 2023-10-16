@@ -9,7 +9,7 @@ import androidx.navigation.navigation
 private const val interestsGraphRoutePattern = "interests_graph"
 const val profileRoute = "interests_route"
 
-fun NavController.navigateToInterestsGraph(navOptions: NavOptions? = null) {
+fun NavController.navigateToProfile(navOptions: NavOptions? = null) {
     this.navigate(interestsGraphRoutePattern, navOptions)
 }
 

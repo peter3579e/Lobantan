@@ -12,12 +12,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
-import com.android.home.view.navigation.homeNavigationRoute
-import com.android.home.view.navigation.navigateToForYou
+import com.android.home.navigation.homeNavigationRoute
+import com.android.home.navigation.navigateToHome
 import com.android.lobantain.navigation.TopLevelDestination
 import com.android.message.navigation.messageRoute
-import com.android.message.navigation.navigateToBookmarks
-import com.android.profile.navigation.navigateToInterestsGraph
+import com.android.message.navigation.navigateToMessage
+import com.android.profile.navigation.navigateToProfile
 import com.android.profile.navigation.profileRoute
 import kotlinx.coroutines.CoroutineScope
 
@@ -117,9 +117,9 @@ class LbtAppState (
             }
 
             when (topLevelDestination) {
-                TopLevelDestination.HOME -> navController.navigateToForYou(topLevelNavOptions)
-                TopLevelDestination.MESSAGE -> navController.navigateToBookmarks(topLevelNavOptions)
-                TopLevelDestination.PROFILE -> navController.navigateToInterestsGraph(topLevelNavOptions)
+                TopLevelDestination.HOME -> navController.navigateToHome(topLevelNavOptions)
+                TopLevelDestination.MESSAGE -> navController.navigateToMessage(topLevelNavOptions)
+                TopLevelDestination.PROFILE -> navController.navigateToProfile(topLevelNavOptions)
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.android.home.view
+package com.android.designsystem.theme
 
 /*
  * Copyright 2022 The Android Open Source Project

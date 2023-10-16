@@ -1,4 +1,4 @@
-package com.android.home.view
+package com.android.designsystem.theme
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
