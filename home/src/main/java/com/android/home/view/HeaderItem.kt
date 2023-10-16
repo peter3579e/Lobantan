@@ -1,5 +1,6 @@
 package com.android.home.view
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
@@ -30,8 +31,9 @@ fun HeaderItem(
         )
     }
 }
-@Preview
 @Composable
+@Preview(showBackground = true, locale = "en", uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun PreviewHeader() {
     LbtTheme {
         HeaderItem(headerUiModel = HeaderUiModel("Home"))

@@ -7,6 +7,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
+import com.android.home.view.HomeUI
 
 const val LINKED_NEWS_RESOURCE_ID = "linkedNewsResourceId"
 const val homeNavigationRoute = "home_route/{$LINKED_NEWS_RESOURCE_ID}"
@@ -17,7 +18,7 @@ fun NavController.navigateToHome(navOptions: NavOptions? = null) {
     this.navigate(homeNavigationRoute, navOptions)
 }
 
-fun NavGraphBuilder.homeScreen(onTopicClick: (String) -> Unit) {
+fun NavGraphBuilder.homeScreen() {
     composable(
         route = homeNavigationRoute,
         deepLinks = listOf(
@@ -27,6 +28,6 @@ fun NavGraphBuilder.homeScreen(onTopicClick: (String) -> Unit) {
             navArgument(LINKED_NEWS_RESOURCE_ID) { type = NavType.StringType },
         ),
     ) {
-//        ForYouRoute(onTopicClick)
+        HomeUI()
     }
 }

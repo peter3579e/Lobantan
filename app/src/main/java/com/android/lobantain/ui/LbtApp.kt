@@ -34,9 +34,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
-import com.android.designsystem.component.NiaNavigationBar
-import com.android.designsystem.component.NiaNavigationBarItem
+import com.android.designsystem.component.LbtNavigationBar
+import com.android.designsystem.component.LbtNavigationBarItem
 import com.android.designsystem.theme.LbtTheme
+import com.android.lobantain.navigation.LbtNavHost
 import com.android.lobantain.navigation.TopLevelDestination
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -62,7 +63,7 @@ fun LbtApp(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         bottomBar = {
             if (appState.shouldShowBottomBar) {
-                NiaBottomBar(
+                LbtBottomBar(
                     destinations = appState.topLevelDestinations,
                     onNavigateToDestination = appState::navigateToTopLevelDestination,
                     currentDestination = appState.currentDestination,
@@ -107,13 +108,7 @@ fun LbtApp(
 //                    )
                 }
 
-//                NiaNavHost(appState = appState, onShowSnackbar = { message, action ->
-//                    snackbarHostState.showSnackbar(
-//                        message = message,
-//                        actionLabel = action,
-//                        duration = SnackbarDuration.Short,
-//                    ) == SnackbarResult.ActionPerformed
-//                })
+                LbtNavHost(appState = appState)
             }
 
             // TODO: We may want to add padding or spacer when the snackbar is shown so that
@@ -123,19 +118,19 @@ fun LbtApp(
 }
 
 @Composable
-private fun NiaBottomBar(
+private fun LbtBottomBar(
     destinations: List<TopLevelDestination>,
     onNavigateToDestination: (TopLevelDestination) -> Unit,
     currentDestination: NavDestination?,
     modifier: Modifier = Modifier,
 ) {
-    NiaNavigationBar(
+    LbtNavigationBar(
         modifier = modifier,
     ) {
         destinations.forEach { destination ->
 //            val hasUnread = destinationsWithUnreadResources.contains(destination)
             val selected = currentDestination.isTopLevelDestinationInHierarchy(destination)
-            NiaNavigationBarItem(
+            LbtNavigationBarItem(
                 selected = selected,
                 onClick = { onNavigateToDestination(destination) },
                 icon = {

@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
  * [NavigationBarItem]s.
  */
 @Composable
-fun NiaNavigationBar(
+fun LbtNavigationBar(
     modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit,
 ) {
@@ -45,7 +45,7 @@ fun NiaNavigationBar(
  * only be shown when this item is selected.
  */
 @Composable
-fun RowScope.NiaNavigationBarItem(
+fun RowScope.LbtNavigationBarItem(
     selected: Boolean,
     onClick: () -> Unit,
     icon: @Composable () -> Unit,
