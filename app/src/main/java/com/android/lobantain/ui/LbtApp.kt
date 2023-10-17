@@ -12,12 +12,14 @@ import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -28,20 +30,26 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
+import com.android.designsystem.component.LbtTopAppBar
 import com.android.designsystem.navigation.LbtNavigationBar
 import com.android.designsystem.navigation.LbtNavigationBarItem
 import com.android.designsystem.theme.LbtTheme
+import com.android.designsystem.theme.icon.LbtIcons
+import com.android.designsystem.R
 import com.android.lobantain.navigation.LbtNavHost
 import com.android.lobantain.navigation.TopLevelDestination
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalComposeUiApi::class, ExperimentalLayoutApi::class)
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalLayoutApi::class,
+    ExperimentalMaterial3Api::class
+)
 @Composable
 fun LbtApp(
     windowSizeClass: WindowSizeClass,
@@ -90,22 +98,22 @@ fun LbtApp(
                 // Show the top app bar on top level destinations.
                 val destination = appState.currentTopLevelDestination
                 if (destination != null) {
-//                    NiaTopAppBar(
-//                        titleRes = destination.titleTextId,
-//                        navigationIcon = NiaIcons.Search,
-//                        navigationIconContentDescription = stringResource(
-//                            id = settingsR.string.top_app_bar_navigation_icon_description,
-//                        ),
-//                        actionIcon = NiaIcons.Settings,
-//                        actionIconContentDescription = stringResource(
-//                            id = settingsR.string.top_app_bar_action_icon_description,
-//                        ),
-//                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-//                            containerColor = Color.Transparent,
-//                        ),
+                    LbtTopAppBar(
+                        titleRes = destination.titleTextId,
+                        navigationIcon = LbtIcons.Search,
+                        navigationIconContentDescription = stringResource(
+                            id = R.string.top_app_bar_navigation_icon_description,
+                        ),
+                        actionIcon = LbtIcons.Settings,
+                        actionIconContentDescription = stringResource(
+                            id = R.string.top_app_bar_action_icon_description,
+                        ),
+                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                            containerColor = Color.Transparent,
+                        ),
 //                        onActionClick = { showSettingsDialog = true },
 //                        onNavigationClick = { appState.navigateToSearch() },
-//                    )
+                    )
                 }
 
                 LbtNavHost(appState = appState)
@@ -145,7 +153,7 @@ private fun LbtBottomBar(
                         contentDescription = null,
                     )
                 },
-                label = { Text(destination.iconTextId) },
+                label = { Text(stringResource(id = destination.iconTextId)) },
 //                modifier = if (hasUnread) Modifier.notificationDot() else Modifier,
             )
         }
@@ -175,11 +183,3 @@ private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLev
     this?.hierarchy?.any {
         it.route?.contains(destination.name, true) ?: false
     } ?: false
-
-
-@Preview
-@Composable
-fun previewLbt() {
-    LbtTheme {
-    }
-}

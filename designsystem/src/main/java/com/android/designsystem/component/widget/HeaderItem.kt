@@ -1,4 +1,4 @@
-package com.android.designsystem.component
+package com.android.designsystem.component.widget
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column

@@ -2,29 +2,30 @@ package com.android.lobantain.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.android.designsystem.theme.icon.LbtIcons
+import com.android.lobantain.R
 
 enum class TopLevelDestination(
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
-    val iconTextId: String,
-    val titleTextId: String,
+    val iconTextId: Int,
+    val titleTextId: Int,
 ) {
     HOME(
         selectedIcon = LbtIcons.Home,
         unselectedIcon = LbtIcons.HomeBoarder,
-        iconTextId = "Home",
-        titleTextId = "Home",
+        iconTextId = R.string.home,
+        titleTextId = R.string.home,
     ),
     MESSAGE(
         selectedIcon = LbtIcons.Message,
         unselectedIcon = LbtIcons.MessageBoarder,
-        iconTextId = "Message",
-        titleTextId = "Message",
+        iconTextId = R.string.message,
+        titleTextId = R.string.message,
     ),
     PROFILE(
         selectedIcon = LbtIcons.Profile,
         unselectedIcon = LbtIcons.ProfileBoarder,
-        iconTextId = "Profile",
-        titleTextId = "Profile",
+        iconTextId = R.string.profile,
+        titleTextId = R.string.profile,
     ),
 }

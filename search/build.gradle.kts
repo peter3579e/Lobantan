@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.android.designsystem"
+    namespace = "com.android.search"
     compileSdk = 34
 
     defaultConfig {
@@ -24,10 +24,6 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -40,9 +36,10 @@ android {
 }
 
 dependencies {
-    //common
-    api(libs.androidx.compose.material.iconsExtended)
+
+
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(project(":designsystem"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
@@ -59,7 +56,4 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
-
-    //extra
-    api(libs.androidx.compose.material3)
 }
