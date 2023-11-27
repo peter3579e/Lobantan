@@ -44,6 +44,7 @@ dependencies {
 
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(project(":designsystem"))
+    implementation(project(":data"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)

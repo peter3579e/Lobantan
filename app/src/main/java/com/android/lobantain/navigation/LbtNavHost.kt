@@ -5,7 +5,6 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import com.android.home.navigation.homeNavigationRoute
 import com.android.home.navigation.homeScreen
-import com.android.home.view.HomeUI
 import com.android.lobantain.ui.LbtAppState
 import com.android.message.navigation.messageScreen
 import com.android.profile.navigation.profileScreen

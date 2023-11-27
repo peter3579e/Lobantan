@@ -1,4 +1,8 @@
 package com.android.data.repository
 
-class HomeRepository {
+import com.android.data.model.Categories
+
+interface HomeRepository {
+
+    fun getHomeCategoriesList(): List<Categories>
 }
