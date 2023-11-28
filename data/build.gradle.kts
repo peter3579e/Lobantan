@@ -1,7 +1,10 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
+    id("kotlinx-serialization")
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -25,11 +28,26 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_18
+        targetCompatibility = JavaVersion.VERSION_18
+    }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.3"
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "18"
+    }
+
+    kapt {
+        correctErrorTypes = true
     }
 }
 
@@ -37,6 +55,12 @@ dependencies {
     implementation(project(":common"))
 
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.compose.material3.windowSizeClass)
+
+    implementation(libs.androidx.compose.runtime.tracing)
+    implementation(libs.coil.kt)
+
+
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
@@ -55,4 +79,9 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 
+    implementation(libs.retrofit.kotlin.serialization)
+
+    //hilt dagger
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
 }

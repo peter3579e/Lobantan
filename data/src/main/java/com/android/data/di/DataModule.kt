@@ -11,20 +11,29 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
+import kotlinx.serialization.json.Json
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface DataModule {
+abstract class DataModule {
 
-//    @Provides
-//    @Singleton
-//    fun providesFakeAssetManager(
-//        @ApplicationContext context: Context,
-//    ): FakeAssetManager = FakeAssetManager(context.assets::open)
+    @Binds
+    @Singleton
+    abstract fun bindsHomeRepository(
+        fakeHomeRepository: FakeHomeRepository,
+    ): HomeRepository
 
+    companion object {
+        @Provides
+        @Singleton
+        fun providesNetworkJson(): Json = Json {
+            ignoreUnknownKeys = true
+        }
 
-//    @Binds
-//    fun bindsHomeRepository(
-//        fakeHomeRepository: FakeHomeRepository,
-//    ): HomeRepository
+        @Provides
+        @Singleton
+        fun providesFakeAssetManager(
+            @ApplicationContext context: Context,
+        ): FakeAssetManager = FakeAssetManager(context.assets::open)
+    }
 }

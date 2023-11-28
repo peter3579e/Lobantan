@@ -1,7 +1,10 @@
 package com.android.data.model
 
-data class Categories (
-    val id: String,
-    val title: Int,
-    val products: List<Product>
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class Categories(
+    val id: String? = null,
+    val title: String? = null,
+    val products: List<Product>? = null,
 )

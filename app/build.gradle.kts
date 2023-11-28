@@ -62,6 +62,7 @@ dependencies {
     implementation(project(":message"))
     implementation(project(":profile"))
     implementation(project(":designsystem"))
+    implementation(project(":data"))
     api(libs.androidx.compose.material3)
 
 

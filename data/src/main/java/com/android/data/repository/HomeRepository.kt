@@ -4,5 +4,6 @@ import com.android.data.model.Categories
 
 interface HomeRepository {
 
-    fun getHomeCategoriesList(): List<Categories>
+    suspend fun getHomeCategoriesList(): List<Categories>
+
 }
