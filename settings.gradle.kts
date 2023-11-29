@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logics")
     repositories {
         google()
         mavenCentral()
@@ -13,7 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Lobantain"
+rootProject.name = "Lobantan"
 include(":app")
 include(":home")
 include(":message")
@@ -22,3 +23,5 @@ include(":designsystem")
 include(":search")
 include(":data")
 include(":common")
+include(":app:convention")
+include(":buildlogic")

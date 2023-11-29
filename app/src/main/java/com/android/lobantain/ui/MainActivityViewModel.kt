@@ -1,2 +1,2 @@
-package com.android.lobantain.ui
+package com.android.lobantan.ui
 

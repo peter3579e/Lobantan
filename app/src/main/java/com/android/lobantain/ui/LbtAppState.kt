@@ -1,4 +1,4 @@
-package com.android.lobantain.ui
+package com.android.lobantan.ui
 
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
@@ -14,7 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.android.home.navigation.homeNavigationRoute
 import com.android.home.navigation.navigateToHome
-import com.android.lobantain.navigation.TopLevelDestination
+import com.android.lobantan.navigation.TopLevelDestination
 import com.android.message.navigation.messageRoute
 import com.android.message.navigation.navigateToMessage
 import com.android.profile.navigation.navigateToProfile

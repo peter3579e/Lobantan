@@ -1,8 +1,8 @@
-package com.android.lobantain.navigation
+package com.android.lobantan.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.android.designsystem.theme.icon.LbtIcons
-import com.android.lobantain.R
+import com.android.lobantan.R
 
 enum class TopLevelDestination(
     val selectedIcon: ImageVector,

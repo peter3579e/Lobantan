@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 
-package com.android.lobantain
+package com.android.lobantan
 
 import android.app.Application
-import coil.ImageLoader
-import coil.ImageLoaderFactory
 import dagger.hilt.android.HiltAndroidApp
-import javax.inject.Inject
-import javax.inject.Provider
 
 /**
  * [Application] class for NiA

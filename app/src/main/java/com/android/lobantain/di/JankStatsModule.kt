@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.lobantain.di
+package com.android.lobantan.di
 
 import android.app.Activity
 import android.view.Window

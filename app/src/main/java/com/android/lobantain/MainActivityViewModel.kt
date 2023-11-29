@@ -1,4 +1,4 @@
-package com.android.lobantain
+package com.android.lobantan
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

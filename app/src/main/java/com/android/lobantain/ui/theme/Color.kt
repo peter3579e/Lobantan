@@ -1,4 +1,4 @@
-package com.android.lobantain.ui.theme
+package com.android.lobantan.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

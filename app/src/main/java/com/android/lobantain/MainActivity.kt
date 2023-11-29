@@ -1,4 +1,4 @@
-package com.android.lobantain
+package com.android.lobantan
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,10 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.android.designsystem.theme.LbtTheme
-import com.android.lobantain.ui.LbtApp
-import com.android.lobantain.ui.theme.LobantainTheme
+import com.android.lobantan.ui.LbtApp
+import com.android.lobantan.ui.theme.LobantanTheme
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.internal.GeneratedComponent
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @AndroidEntryPoint
@@ -48,7 +47,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    LobantainTheme {
+    LobantanTheme {
         Greeting("Android")
     }
 }

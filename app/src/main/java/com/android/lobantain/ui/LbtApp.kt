@@ -1,4 +1,4 @@
-package com.android.lobantain.ui
+package com.android.lobantan.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
@@ -33,18 +33,16 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
+import com.android.designsystem.R
 import com.android.designsystem.component.LbtTopAppBar
 import com.android.designsystem.navigation.LbtNavigationBar
 import com.android.designsystem.navigation.LbtNavigationBarItem
-import com.android.designsystem.theme.LbtTheme
 import com.android.designsystem.theme.icon.LbtIcons
-import com.android.designsystem.R
-import com.android.lobantain.navigation.LbtNavHost
-import com.android.lobantain.navigation.TopLevelDestination
+import com.android.lobantan.navigation.LbtNavHost
+import com.android.lobantan.navigation.TopLevelDestination
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalLayoutApi::class,

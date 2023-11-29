@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.android.lobantain"
+    namespace = "com.android.lobantan"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.android.lobantain"
+        applicationId = "com.android.lobantan"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -91,6 +91,6 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
 
     //hilt dagger
-    implementation ("com.google.dagger:hilt-android:2.48.1")
-    kapt ("com.google.dagger:hilt-android-compiler:2.48.1")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }
