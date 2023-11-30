@@ -12,7 +12,7 @@ import com.android.home.view.HomeUI
 const val LINKED_NEWS_RESOURCE_ID = "linkedNewsResourceId"
 const val homeNavigationRoute = "home_route/{$LINKED_NEWS_RESOURCE_ID}"
 private const val DEEP_LINK_URI_PATTERN =
-    "https://www.nowinandroid.apps.samples.google.com/foryou/{$LINKED_NEWS_RESOURCE_ID}"
+    "https://www.lobantan.apps.samples.google.com/foryou/{$LINKED_NEWS_RESOURCE_ID}"
 
 fun NavController.navigateToHome(navOptions: NavOptions? = null) {
     this.navigate(homeNavigationRoute, navOptions)
