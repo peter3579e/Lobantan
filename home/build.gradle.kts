@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    id("lobantan.android.hilt")
 }
 
 android {
@@ -42,7 +43,6 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.hilt.navigation.compose)
     implementation(project(":designsystem"))
     implementation(project(":data"))
 
