@@ -2,8 +2,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
-    kotlin("kapt")
-    id("com.google.dagger.hilt.android")
+    id("lobantan.android.hilt")
 }
 
 android {
@@ -66,7 +65,6 @@ dependencies {
     api(libs.androidx.compose.material3)
 
 
-    implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.compose.material3.windowSizeClass)
 
     implementation(libs.androidx.compose.runtime.tracing)
@@ -89,8 +87,4 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
-
-    //hilt dagger
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
 }

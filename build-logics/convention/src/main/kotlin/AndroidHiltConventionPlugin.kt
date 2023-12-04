@@ -31,12 +31,11 @@ class AndroidHiltConventionPlugin : Plugin<Project> {
 
             dependencies {
                 "implementation"(libs.findLibrary("hilt.android").get())
+                "implementation"(libs.findLibrary("androidx-hilt-navigation-compose").get())
                 "kapt"(libs.findLibrary("hilt.compiler").get())
                 "kaptAndroidTest"(libs.findLibrary("hilt.compiler").get())
                 "kaptTest"(libs.findLibrary("hilt.compiler").get())
             }
-
         }
     }
-
 }

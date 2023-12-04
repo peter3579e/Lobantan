@@ -31,15 +31,15 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             extensions.configure<LibraryExtension> {
                 defaultConfig {
                     testInstrumentationRunner =
-                        "com.google.samples.apps.lobantan.core.testing.NiaTestRunner"
+                        "com.google.samples.apps.lobantan.core.testing.Lobantan"
                 }
                 configureGradleManagedDevices(this)
             }
 
             dependencies {
                 add("implementation", project(":common"))
-//                add("implementation", project(":core:ui"))
-//                add("implementation", project(":core:designsystem"))
+                add("implementation", project(":app"))
+                add("implementation", project(":data"))
 //                add("implementation", project(":core:data"))
 //                add("implementation", project(":core:common"))
 //                add("implementation", project(":core:domain"))

@@ -77,6 +77,4 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
 
     implementation(libs.retrofit.kotlin.serialization)
-
-    //hilt dagger
 }
