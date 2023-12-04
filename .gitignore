@@ -13,3 +13,14 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Ignore build artifacts
+build/
+out/
+
+# Ignore IDE files
+.idea/
+*.iml
+
+# Ignore compiled binaries
+*.class
