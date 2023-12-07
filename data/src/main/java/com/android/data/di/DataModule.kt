@@ -1,9 +1,9 @@
 package com.android.data.di
 
 import android.content.Context
-import com.android.data.repository.HomeRepository
+import com.android.data.repository.LbtNetworkDataSource
 import com.android.data.repository.fake.FakeAssetManager
-import com.android.data.repository.fake.FakeHomeRepository
+import com.android.data.repository.fake.FakeLbtNetworkDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -19,9 +19,10 @@ abstract class DataModule {
 
     @Binds
     @Singleton
-    abstract fun bindsHomeRepository(
-        fakeHomeRepository: FakeHomeRepository,
-    ): HomeRepository
+    abstract fun bindsFakeDataSource(
+        fakeLbtNetworkDataSource: FakeLbtNetworkDataSource,
+    ): LbtNetworkDataSource
+
 
     companion object {
         @Provides

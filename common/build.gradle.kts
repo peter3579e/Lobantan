@@ -56,6 +56,7 @@ dependencies {
 
     implementation(libs.androidx.compose.runtime.tracing)
     implementation(libs.coil.kt)
+    api(libs.androidx.metrics)
 
 
 

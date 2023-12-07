@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import com.android.designsystem.component.DynamicAsyncImage
 
 @Composable
-internal fun ProductUI(
+fun ProductUI(
     imageUrl: String,
     modifier: Modifier = Modifier,
 ) {

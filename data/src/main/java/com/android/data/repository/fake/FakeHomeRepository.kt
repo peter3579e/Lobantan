@@ -1,31 +1,42 @@
 package com.android.data.repository.fake
 
-import JvmUnitTestFakeAssetManager
-import android.annotation.SuppressLint
 import com.android.common.network.Dispatcher
 import com.android.common.network.LbtDispatchers
 import com.android.data.model.Categories
+import com.android.data.model.Product
 import com.android.data.repository.HomeRepository
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.decodeFromStream
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 
 class FakeHomeRepository @Inject constructor(
     @Dispatcher(LbtDispatchers.IO) private val ioDispatcher: CoroutineDispatcher,
-    private val networkJson: Json,
-    @SuppressLint("VisibleForTests") private val assets: FakeAssetManager = JvmUnitTestFakeAssetManager,
+    private val datasource: FakeLbtNetworkDataSource,
 ) : HomeRepository {
-    @OptIn(ExperimentalSerializationApi::class)
-    override suspend fun getHomeCategoriesList(): List<Categories> {
-        return withContext(ioDispatcher) {
-            assets.open(HOME_ASSET).use(networkJson::decodeFromStream)
+    override fun getCategories(): Flow<List<Categories>> = flow {
+        emit(
+            datasource.getHomeCategoriesList().map {
+                Categories(
+                    id = it.id,
+                    title = it.title,
+                    products = it.products
+                )
+            }
+        )
+    }.flowOn(ioDispatcher)
+
+    override fun getProducts(id: String): Flow<List<Product>> {
+        return getCategories().map {
+            it.first { product -> product.id == id }.products
         }
     }
 
-    companion object {
-        private const val HOME_ASSET = "home.json"
-    }
+    /** TODO
+     * Synchronizes the local database backing the repository with the network.
+     * Returns if the sync was successful or not.
+     *  override suspend fun syncWith(synchronizer: Synchronizer) = true
+     */
 }

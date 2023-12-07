@@ -1,13 +1,15 @@
 package com.android.home.view
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.Text
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.android.designsystem.component.widget.HeaderItem
-import com.android.designsystem.model.HeaderUiModel
+import com.android.common.ui.TrackScrollJank
 import com.android.designsystem.theme.LbtTheme
 import com.android.designsystem.theme.ui.DevicePreviews
 import com.android.home.component.products.ProductUI
@@ -17,31 +19,69 @@ internal fun HomeUI(
     viewModel: HomeViewModel = hiltViewModel(),
     modifier: Modifier = Modifier
 ) {
-    val fakeHomeRepository = viewModel.getFakeHomeRepository()
+    val fakeHomeUiState: HomeUiState by viewModel.fakeUiState.collectAsState()
     Column(
         modifier
     ) {
-        HomeItem(name = "home", imageUrl = "https://picsum.photos/300/200?random=2")
+        HomeItem(fakeHomeUiState)
     }
 }
 
 @Composable
 internal fun HomeItem(
-    name: String,
-    imageUrl: String,
+    homeUiState: HomeUiState,
     modifier: Modifier = Modifier
 ) {
-    Column(
-        modifier
+    val state = rememberLazyListState()
+    TrackScrollJank(scrollableState = state, stateName = "topic:screen")
+    Box(
+        modifier = modifier,
     ) {
-        HeaderItem(headerUiModel = HeaderUiModel("Home"))
-        ListItem(headlineContent = {
-            Text(text = name)
-        },
-            trailingContent = {
-                ProductUI(imageUrl = imageUrl)
+        LazyRow(
+            state = state,
+        ) {
+            when (homeUiState) {
+                is HomeUiState.Success -> {
+                    items(homeUiState.products.size) { index ->
+                        ProductUI(imageUrl = homeUiState.products[index].image)
+                    }
+                }
+
+                else -> {}
             }
-        )
+        }
+
+//        LazyColumn(
+//            state = state,
+//            horizontalAlignment = Alignment.CenterHorizontally,
+//        ) {
+//            item {
+//                Spacer(Modifier.windowInsetsTopHeight(WindowInsets.safeDrawing))
+//            }
+//            when (homeUiState) {
+//                is HomeUiState.Success -> {
+//                    item {
+//                        ProductUI(imageUrl = "https://picsum.photos/300/200?random=2")
+//                    }
+//                }
+//
+//                else -> {}
+//            }
+//            item {
+//                Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeDrawing))
+//            }
+    }
+}
+
+private fun homeItemSize(
+    topicUiState: HomeUiState,
+) = when (topicUiState) {
+    HomeUiState.Error -> 0 // Nothing
+    HomeUiState.Loading -> 1 // Loading bar
+    is HomeUiState.Success -> when (topicUiState) {
+        HomeUiState.Error -> 0 // Nothing
+        HomeUiState.Loading -> 1 // Loading bar
+        is HomeUiState.Success -> 2 + topicUiState.products.size // Toolbar, header
     }
 }
 
@@ -50,6 +90,6 @@ internal fun HomeItem(
 @DevicePreviews
 fun previewHome() {
     LbtTheme {
-        HomeItem("peter", "https://picsum.photos/300/200?random=2")
+//        HomeItem("peter", "https://picsum.photos/300/200?random=2")
     }
 }

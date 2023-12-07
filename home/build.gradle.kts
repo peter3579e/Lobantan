@@ -45,6 +45,7 @@ dependencies {
 
     implementation(project(":designsystem"))
     implementation(project(":data"))
+    implementation(project(":common"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)

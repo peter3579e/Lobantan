@@ -63,4 +63,5 @@ dependencies {
     //extra
     api(libs.androidx.compose.material3)
     implementation(libs.coil.kt.compose)
+    implementation("io.coil-kt:coil-compose:1.3.3")
 }

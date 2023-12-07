@@ -16,6 +16,20 @@
         "title": "Laptop",
         "price": "£800",
         "years": 1
+      },
+      {
+        "id": "102",
+        "image": "https://picsum.photos/300/200?random=2",
+        "title": "Laptop",
+        "price": "£800",
+        "years": 1
+      },
+      {
+        "id": "102",
+        "image": "https://picsum.photos/300/200?random=2",
+        "title": "Laptop",
+        "price": "£800",
+        "years": 1
       }
     ]
   },
