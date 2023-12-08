@@ -5,13 +5,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.android.common.ui.TrackScrollJank
+import com.android.designsystem.component.LbtLoadingWheel
 import com.android.designsystem.theme.LbtTheme
 import com.android.designsystem.theme.ui.DevicePreviews
+import com.android.home.R
 import com.android.home.component.products.ProductUI
 
 @Composable
@@ -19,7 +22,7 @@ internal fun HomeUI(
     viewModel: HomeViewModel = hiltViewModel(),
     modifier: Modifier = Modifier
 ) {
-    val fakeHomeUiState: HomeUiState by viewModel.fakeUiState.collectAsState()
+    val fakeHomeUiState: HomeUiState by viewModel.fakeUiState.collectAsStateWithLifecycle()
     Column(
         modifier
     ) {
@@ -41,13 +44,20 @@ internal fun HomeItem(
             state = state,
         ) {
             when (homeUiState) {
+                HomeUiState.Loading -> item {
+                    LbtLoadingWheel(
+                        modifier = modifier,
+                        contentDesc = stringResource(id = R.string.topic_loading)
+                    )
+                }
+
                 is HomeUiState.Success -> {
                     items(homeUiState.products.size) { index ->
                         ProductUI(imageUrl = homeUiState.products[index].image)
                     }
                 }
 
-                else -> {}
+                HomeUiState.Error -> TODO()
             }
         }
 

@@ -46,6 +46,7 @@ dependencies {
     implementation(project(":designsystem"))
     implementation(project(":data"))
     implementation(project(":common"))
+    implementation(libs.androidx.lifecycle.runtimeCompose)
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
