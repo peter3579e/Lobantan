@@ -43,6 +43,7 @@ dependencies {
     //common
     api(libs.androidx.compose.material.iconsExtended)
     implementation(libs.androidx.hilt.navigation.compose)
+    api(libs.glide.image)
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)

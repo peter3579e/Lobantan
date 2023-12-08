@@ -2,12 +2,14 @@ package com.android.home.view
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.android.common.ui.TrackScrollJank
@@ -36,7 +38,7 @@ internal fun HomeItem(
     modifier: Modifier = Modifier
 ) {
     val state = rememberLazyListState()
-    TrackScrollJank(scrollableState = state, stateName = "topic:screen")
+    TrackScrollJank(scrollableState = state, stateName = "home:screen")
     Box(
         modifier = modifier,
     ) {
@@ -53,33 +55,16 @@ internal fun HomeItem(
 
                 is HomeUiState.Success -> {
                     items(homeUiState.products.size) { index ->
-                        ProductUI(imageUrl = homeUiState.products[index].image)
+                        ProductUI(
+                            imageUrl = homeUiState.products[index].image,
+                            modifier.size(100.dp)
+                        )
                     }
                 }
 
                 HomeUiState.Error -> TODO()
             }
         }
-
-//        LazyColumn(
-//            state = state,
-//            horizontalAlignment = Alignment.CenterHorizontally,
-//        ) {
-//            item {
-//                Spacer(Modifier.windowInsetsTopHeight(WindowInsets.safeDrawing))
-//            }
-//            when (homeUiState) {
-//                is HomeUiState.Success -> {
-//                    item {
-//                        ProductUI(imageUrl = "https://picsum.photos/300/200?random=2")
-//                    }
-//                }
-//
-//                else -> {}
-//            }
-//            item {
-//                Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeDrawing))
-//            }
     }
 }
 

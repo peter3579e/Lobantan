@@ -31,6 +31,7 @@ robolectric = "4.10.3"
 androidDesugarJdkLibs = "2.0.3"
 androidxMetrics = "1.0.0-alpha03"
 androidxLifecycle = "2.6.1"
+glide-image = "2.2.12"
 
 
 [libraries]
@@ -52,6 +53,7 @@ google-oss-licenses-plugin = { group = "com.google.android.gms", name = "oss-lic
 coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 androidx-metrics = { group = "androidx.metrics", name = "metrics-performance", version.ref = "androidxMetrics" }
 androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
+glide-image = { group = "com.github.skydoves", name = "landscapist-glide", version.ref = "glide-image" }
 
 
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }

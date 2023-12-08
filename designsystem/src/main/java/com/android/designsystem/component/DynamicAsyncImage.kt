@@ -39,7 +39,9 @@ import coil.compose.AsyncImagePainter.State.Error
 import coil.compose.AsyncImagePainter.State.Loading
 import coil.compose.rememberAsyncImagePainter
 import com.android.designsystem.R
+import com.android.designsystem.theme.LbtTheme
 import com.android.designsystem.theme.LocalTintTheme
+import com.android.designsystem.theme.ui.DevicePreviews
 
 /**
  * A wrapper around [AsyncImage] which determines the colorFilter based on the theme
@@ -80,6 +82,17 @@ fun DynamicAsyncImage(
             painter = if (isError.not() && !isLocalInspection) imageLoader else placeholder,
             contentDescription = contentDescription,
             colorFilter = if (iconTint != null) ColorFilter.tint(iconTint) else null,
+        )
+    }
+}
+
+@Composable
+@DevicePreviews
+fun previewProduct() {
+    LbtTheme {
+        DynamicAsyncImage(
+            contentDescription = null,
+            imageUrl = "https://picsum.photos/300/200?random=2"
         )
     }
 }
