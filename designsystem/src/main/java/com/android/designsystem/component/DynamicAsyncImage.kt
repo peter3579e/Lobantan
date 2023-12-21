@@ -78,7 +78,7 @@ fun DynamicAsyncImage(
             )
         }
         Image(
-            contentScale = ContentScale.Crop,
+            contentScale = ContentScale.Fit,
             painter = if (isError.not() && !isLocalInspection) imageLoader else placeholder,
             contentDescription = contentDescription,
             colorFilter = if (iconTint != null) ColorFilter.tint(iconTint) else null,

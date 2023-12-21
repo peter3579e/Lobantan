@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.common.result.Result
 import com.android.common.result.asResult
-import com.android.data.model.Product
+import com.android.data.model.Categories
 import com.android.data.repository.fake.FakeHomeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -20,7 +20,6 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
 
     val fakeUiState: StateFlow<HomeUiState> = categoriesUiState(
-        "1",
         fakeHomeRepository
     )
         .stateIn(
@@ -31,19 +30,18 @@ class HomeViewModel @Inject constructor(
 
 
     private fun categoriesUiState(
-        productId: String,
         fakeHomeRepository: FakeHomeRepository,
     ): Flow<HomeUiState> {
         // Observe categories
-        val productStream: Flow<List<Product>> = fakeHomeRepository.getProducts(productId)
+        val productStream: Flow<List<Categories>> = fakeHomeRepository.getCategories()
 
         return productStream
             .asResult()
-            .map { products ->
-                when (products) {
+            .map { categories ->
+                when (categories) {
                     is Result.Success -> {
-                        val products = products.data
-                        HomeUiState.Success(products)
+                        val categories = categories.data
+                        HomeUiState.Success(categories)
                     }
 
                     is Result.Loading -> {
@@ -59,7 +57,7 @@ class HomeViewModel @Inject constructor(
 }
 
 sealed interface HomeUiState {
-    data class Success(val products: List<Product>) : HomeUiState
+    data class Success(val categories: List<Categories>) : HomeUiState
     object Error : HomeUiState
     object Loading : HomeUiState
 }

@@ -2,7 +2,9 @@ package com.android.home.view
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
@@ -13,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.android.common.ui.TrackScrollJank
+import com.android.data.model.Product
 import com.android.designsystem.component.LbtLoadingWheel
 import com.android.designsystem.theme.LbtTheme
 import com.android.designsystem.theme.ui.DevicePreviews
@@ -42,7 +45,7 @@ internal fun HomeItem(
     Box(
         modifier = modifier,
     ) {
-        LazyRow(
+        LazyColumn(
             state = state,
         ) {
             when (homeUiState) {
@@ -54,10 +57,10 @@ internal fun HomeItem(
                 }
 
                 is HomeUiState.Success -> {
-                    items(homeUiState.products.size) { index ->
-                        ProductUI(
-                            imageUrl = homeUiState.products[index].image,
-                            modifier.size(100.dp)
+                    items(homeUiState.categories.size) { index ->
+                        productItems(
+                            products = homeUiState.categories[index].products,
+                            modifier = Modifier.padding(vertical = 10.dp)
                         )
                     }
                 }
@@ -68,15 +71,22 @@ internal fun HomeItem(
     }
 }
 
-private fun homeItemSize(
-    topicUiState: HomeUiState,
-) = when (topicUiState) {
-    HomeUiState.Error -> 0 // Nothing
-    HomeUiState.Loading -> 1 // Loading bar
-    is HomeUiState.Success -> when (topicUiState) {
-        HomeUiState.Error -> 0 // Nothing
-        HomeUiState.Loading -> 1 // Loading bar
-        is HomeUiState.Success -> 2 + topicUiState.products.size // Toolbar, header
+@Composable
+internal fun productItems(
+    products: List<Product>,
+    modifier: Modifier = Modifier
+) {
+    val state = rememberLazyListState()
+    LazyRow(
+        state = state,
+        modifier = modifier
+    ) {
+        items(products.size) { index ->
+            ProductUI(
+                product = products[index],
+                modifier.size(100.dp)
+            )
+        }
     }
 }
 

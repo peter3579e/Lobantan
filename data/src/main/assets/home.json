@@ -5,7 +5,7 @@
     "products": [
       {
         "id": "101",
-        "image": "https://picsum.photos/300/200?random=1",
+        "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1VWQmqQu6wDswls9f_5NpEQnq4eR57g2NwzWvhKItcKtV6rb_Cyo75XSyL6vvmCIo4tzQn-8taNagEp7QG0KU1L4yMqwbYozNMzBMEFxEN2XintAhy5nLI4RQDaOXr8dgiIFdGOBMdl577Ndelzc0tDBzjI6mz7e4MF8_Tn09KWguZi6I-bS5NbJn/w1200-h630-p-k-no-nu/unnamed%20%2816%29.png",
         "title": "Smartphone",
         "price": "£300",
         "years": 2
@@ -52,6 +52,20 @@
         "price": "£250",
         "minSize": 120,
         "maxSize": 180
+      },
+      {
+        "id": "102",
+        "image": "https://picsum.photos/300/200?random=2",
+        "title": "Laptop",
+        "price": "£800",
+        "years": 1
+      },
+      {
+        "id": "102",
+        "image": "https://picsum.photos/300/200?random=2",
+        "title": "Laptop",
+        "price": "£800",
+        "years": 1
       }
     ]
   },
@@ -70,6 +84,20 @@
         "image": "https://picsum.photos/300/200?random=6",
         "title": "Running Shoes",
         "price": "£50"
+      },
+      {
+        "id": "102",
+        "image": "https://picsum.photos/300/200?random=2",
+        "title": "Laptop",
+        "price": "£800",
+        "years": 1
+      },
+      {
+        "id": "102",
+        "image": "https://picsum.photos/300/200?random=2",
+        "title": "Laptop",
+        "price": "£800",
+        "years": 1
       }
     ]
   }
